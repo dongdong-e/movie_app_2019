@@ -4,15 +4,18 @@ import PropTypes from "prop-types";
 // React는 자동으로 class component의 render method를 실행함
 // class component는 class이지만 react component에서 확장 -> 스크린에 표시하기 위해서는 render 활용
 class App extends React.Component {
+  // state는 object
   state = {
     count: 0
   };
 
+  // state를 변경해주기 위해서는 setState를 활용해 render()을 호출함
+  // call setState, react is going to re-render!
   add = () => {
-    console.log("add");
+    this.setState(current => ({ count: current.count + 1 }));
   };
   minus = () => {
-    console.log("minus");
+    this.setState(current => ({ count: current.count - 1 }));
   };
 
   // function(): 함수 바로 실행, function: 클릭할 때만 실행
